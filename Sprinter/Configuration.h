@@ -42,7 +42,7 @@
 
 
 //// Endstop Settings
-#define ENDSTOPPULLUPS // Comment this out (using // at the start of the line) to disable the endstop pullup resistors
+//rgg #define ENDSTOPPULLUPS // Comment this out (using // at the start of the line) to disable the endstop pullup resistors
 // The pullups are needed if you directly connect a mechanical endswitch between the signal and ground pins.
 //If your axes are only moving in one direction, make sure the endstops are connected properly.
 //If your axes move in one direction ONLY when the endstops are triggered, set [XYZ]_ENDSTOP_INVERT to true here:
@@ -119,17 +119,15 @@ const bool DISABLE_E = false;
 // Inverting axis direction
 //-----------------------------------------------------------------------
 const bool INVERT_X_DIR = false;
-const bool INVERT_Y_DIR = false;
-const bool INVERT_Z_DIR = true;
-//rgg 140111 const bool INVERT_E_DIR = false;
-const bool INVERT_E_DIR = true;
+const bool INVERT_Y_DIR = true; // rgg 140406 was false
+const bool INVERT_Z_DIR = false; // rgg 140406 was true
+const bool INVERT_E_DIR = false;
 
 //-----------------------------------------------------------------------
 //// ENDSTOP SETTINGS:
 //-----------------------------------------------------------------------
 // Sets direction of endstops when homing; 1=MAX, -1=MIN
-//rgg 140111 #define X_HOME_DIR -1
-#define X_HOME_DIR 1
+#define X_HOME_DIR -1
 #define Y_HOME_DIR -1
 #define Z_HOME_DIR -1
 
@@ -142,8 +140,8 @@ const bool max_software_endstops = true; //If true, axis won't move to coordinat
 //-----------------------------------------------------------------------
 //Max Length for Prusa Mendel, check the ways of your axis and set this Values
 //-----------------------------------------------------------------------
-const int X_MAX_LENGTH = 200;
-const int Y_MAX_LENGTH = 200;
+const int X_MAX_LENGTH = 180; //rgg 142020 was 200
+const int Y_MAX_LENGTH = 180; //rgg was 200
 const int Z_MAX_LENGTH = 300;
 
 //-----------------------------------------------------------------------
