@@ -26,12 +26,20 @@
 // 5 is ParCan supplied 104GT-2 100K
 // 6 is 100K Thermistor (B57540G0104F000)(Mixshop)
 // 7 is 100k Honeywell thermistor 135-104LAG-J01(Mixshop)
-#define THERMISTORHEATER 7
+
+// RGG - switch to new thermistor Semitec 104GT2
+#define THERMISTORHEATER 5
+//#define THERMISTORHEATER 7
 #define THERMISTORBED 7
 
 //// Calibration variables
+// rgg - change to fit with T5 belt
+//#define _AXIS_STEP_PER_UNIT {64, 64, 3200/1.25,450}
+// adjust extruder - needs more
+#define _AXIS_STEP_PER_UNIT {64, 64, 3200/1.25,577}
+
 // X, Y, Z, E steps per unit - Metric Prusa Mendel with Wade extruder:
-#define _AXIS_STEP_PER_UNIT {80, 80, 3200/1.25,450}
+//#define _AXIS_STEP_PER_UNIT {80, 80, 3200/1.25,450}
 //X, Y, Z, E steps per unit - Mix G1:
 //#define _AXIS_STEP_PER_UNIT {80, 80, 3200/1.25,150}
 // Metric Prusa Mendel with Makergear geared stepper extruder:
@@ -141,9 +149,9 @@ const bool max_software_endstops = true; //If true, axis won't move to coordinat
 //-----------------------------------------------------------------------
 //Max Length for Prusa Mendel, check the ways of your axis and set this Values
 //-----------------------------------------------------------------------
-const int X_MAX_LENGTH = 180; //rgg 142020 was 200
-const int Y_MAX_LENGTH = 180; //rgg was 200
-const int Z_MAX_LENGTH = 300;
+const int X_MAX_LENGTH = 150; //rgg 142020 was 200
+const int Y_MAX_LENGTH = 160; //rgg was 200
+const int Z_MAX_LENGTH = 80;  //rgg was 300
 
 //-----------------------------------------------------------------------
 //// MOVEMENT SETTINGS
@@ -317,7 +325,7 @@ const int dropsegments=5; //everything with less than this number of steps will 
 // When temperature exceeds max temp, your heater will be switched off.
 // This feature exists to protect your hotend from overheating accidentally, but *NOT* from thermistor short/failure!
 // You should use MINTEMP for thermistor short/failure protection.
-#define MAXTEMP 275
+#define MAXTEMP 245 // was 275
 
 // Select one of these only to define how the nozzle temp is read.
 #define HEATER_USES_THERMISTOR
