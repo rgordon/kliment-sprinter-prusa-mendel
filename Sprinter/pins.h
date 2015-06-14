@@ -450,8 +450,19 @@
 #define KILL_PIN           -1
 #define ALARM_PIN          -1
 
+// RGG swap pins so that Extruder is now on 8 and bed on 10
+// due to suspect MOSFET.
+// HEATER_0 is extruder
+// HEATER_1 is bed
+#define TEST_EXTRUDER
+#ifdef TEST_EXTRUDER
+#define HEATER_0_PIN       8
+#define HEATER_1_PIN       10
+#else
 #define HEATER_0_PIN       10
 #define HEATER_1_PIN       8
+#endif
+
 #define TEMP_0_PIN         13   // ANALOG NUMBERING
 #define TEMP_1_PIN         14   // ANALOG NUMBERING
 #define TEMP_2_PIN         15   // ANALOG NUMBERING
